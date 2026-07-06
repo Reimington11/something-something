@@ -30,7 +30,7 @@ export function Login() {
     if (role === "pustakawan") {
       navigate("/admin/dashboard");
     } else {
-      navigate("/");
+      navigate("/home");
     }
   };
 
