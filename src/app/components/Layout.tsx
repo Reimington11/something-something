@@ -1,4 +1,4 @@
-import { Outlet, Link, useLocation, Navigate } from "react-router";
+import { Outlet, Link, useLocation } from "react-router";
 import { Home, Library, User, BookOpen, Bell, Settings, FileText, Banknote, ScanBarcode, HelpCircle } from "lucide-react";
 import { useApp } from "../context/AppContext";
 
@@ -6,12 +6,8 @@ export function Layout() {
   const location = useLocation();
   const { userRole } = useApp();
 
-  if (!userRole) {
-    return <Navigate to="/login" replace />;
-  }
-
   const mahasiswaNav = [
-    { name: "Beranda", path: "/", icon: Home },
+    { name: "Beranda", path: "/home", icon: Home },
     { name: "Katalog", path: "/catalog", icon: Library },
     { name: "Peminjaman", path: "/loans", icon: BookOpen },
     { name: "Denda", path: "/fines", icon: Banknote },
@@ -20,7 +16,7 @@ export function Layout() {
   ];
 
   const dosenNav = [
-    { name: "Beranda", path: "/", icon: Home },
+    { name: "Beranda", path: "/home", icon: Home },
     { name: "Katalog", path: "/catalog", icon: Library },
     { name: "Pengajuan", path: "/request-book", icon: FileText },
     { name: "Bantuan", path: "/about", icon: HelpCircle },
